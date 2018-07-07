@@ -96,16 +96,25 @@ function setup(){
 // =============
 function draw(){
   background(25);
+
+  // Heading and info
   push();
   fill(200,200,200);
+  text("*Click on a point to make prims table according to that point (default 0)", 50,550);
+  text("*Refresh to change point position", 50,565);
   textSize(30);
   text("Visualization of Prim's Algorithm", 50,40);
   stroke(255);
   line(50,42,480,42);
   pop();
+
+  // Lines
   drawLines(matrix, neighbour);
+
+  // Points
   for(var i=0; i<6; i++)
     points[i].render();
+
   primsTable();
 }
 
