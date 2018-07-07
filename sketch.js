@@ -88,6 +88,7 @@ function drawLines(matrix){
 function primsTable(){
   push();
   fill(255);
+  stroke(255);
   // Names
   textSize(20);
   text("Prims Table", 750, 25, 750, 25);
@@ -107,7 +108,28 @@ function primsTable(){
   for(let i=0; i<6; i++){
     text(round(primsDistance[i]*100)/100,900,70+i*20,900,70+i*20);
   }
-  pop(0);
+
+  // Adjecency Matrix
+  text("Adjecency Matrix", 750, 220);
+  for(let i=0; i<6; i++){
+    text(i,750+i*40,250);
+  }
+  line(700,260,970,260);
+  for(let i=0; i<6; i++){
+    text(i,720,280+i*40);
+  }
+  line(740,230,740,500);
+  for(let i=0; i<6; i++){
+    for(let j=0; j<6; j++){
+      noStroke();
+      if(matrix[i][j]>0)
+        fill(255,50,50);
+      else
+        fill(255);
+      text(matrix[i][j]>0?1:0, 750+j*40, 280+i*40);
+    }
+  }
+  pop();
 }
 
 var Point = function(x, y, i){
@@ -121,6 +143,7 @@ var Point = function(x, y, i){
 
   this.render=function(){
     push();
+    noStroke();
     fill(this.rgb[0], this.rgb[1], this.rgb[2]);
     ellipse(this.x, this.y, 30, 30);
     stroke(0);
