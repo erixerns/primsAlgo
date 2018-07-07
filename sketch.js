@@ -96,6 +96,13 @@ function setup(){
 // =============
 function draw(){
   background(25);
+  push();
+  fill(200,200,200);
+  textSize(30);
+  text("Visualization of Prim's Algorithm", 50,40);
+  stroke(255);
+  line(50,42,480,42);
+  pop();
   drawLines(matrix, neighbour);
   for(var i=0; i<6; i++)
     points[i].render();
@@ -187,7 +194,7 @@ var Point = function(x, y, i){
     fill(this.rgb[0], this.rgb[1], this.rgb[2]);
     ellipse(this.x, this.y, 30, 30);
     stroke(0);
-    if(this.rgb.reduce((a,b)=>a+b, 0)/3>100)
+    if(this.rgb.reduce((a,b)=>a+b, 0)/3>150)
       fill(0);
     else
       fill(255);
